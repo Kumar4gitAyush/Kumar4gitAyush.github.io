@@ -1,103 +1,126 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background-color:#0f172a;
-    color:white;
-    font-family:Arial, Helvetica, sans-serif;
+body {
+    background-color: #0f172a;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Navbar */
+/* ============================= */
+/* Navbar                        */
+/* ============================= */
 
 .navbar {
+    display: flex;                  /* was missing — this is why logo/links stacked */
+    justify-content: space-between; /* logo on the left, links on the right */
+    align-items: center;
+    padding: 1.2rem 5rem;
     background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.logo{
-    font-size:1.8rem;
+.logo {
+    font-size: 1.8rem;
 }
 
-.nav-links{
-    display:flex;
-    gap:2rem;
-    list-style:none;
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
 }
 
-.nav-links a{
-    text-decoration:none;
-    color:white;
-    transition:0.3s;
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
 }
 
-.nav-links a:hover{
-    color:#38bdf8;
+.nav-links a:hover {
+    color: #38bdf8;
 }
 
-/* Hero Section */
+/* ============================= */
+/* Hero Section                  */
+/* ============================= */
 
 .hero {
+    display: flex;                  /* was missing — everything was stacking in one column */
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    min-height: 90vh;
+    padding: 4rem 5rem;
     background: radial-gradient(ellipse at center, #0f2744 0%, #0f172a 70%);
 }
 
-.hero-content{
-    max-width:700px;
+.hero-content {
+    max-width: 700px;
 }
 
-.hero-content h1{
-    font-size:4rem;
-    margin-bottom:1rem;
-    letter-spacing:normal;
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    letter-spacing: normal;
 }
 
-.hero-content h2{
-    color:#38bdf8;
-    margin-bottom:1rem;
-    font-size:1.5rem;
+.hero-content h2 {
+    color: #38bdf8;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
-.hero-content p{
-    font-size:1.1rem;
-    line-height:1.6;
-    margin-bottom:2rem;
-}
-.hero-image{
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
 }
 
-.hero-image img{
-    width:300px;
-    height:300px;
-    object-fit:cover;
-    border-radius:50%;
-    border:4px solid #38bdf8;
-    margin: 10px;
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;  /* stops the photo from getting squeezed on smaller screens */
 }
 
-/* Button */
+.hero-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #38bdf8;
+}
 
-.btn{
-    padding:12px 24px;
-    border:none;
-    border-radius:8px;
-    background:#38bdf8;
-    color:white;
-    font-size:1rem;
-    cursor:pointer;
-    transition:0.3s;
+/* ============================= */
+/* Button                        */
+/* ============================= */
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #38bdf8;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 24px rgba(56, 189, 248, 0.3);
 }
-/* Skills Section */
+
+/* ============================= */
+/* Skills Section                */
+/* ============================= */
 
 .skills {
     padding: 4rem 5rem;
@@ -117,7 +140,11 @@ body{
 }
 
 .skill-badge {
+    padding: 10px 20px;              /* badges had no padding, so they looked like plain text */
+    border-radius: 999px;            /* pill shape */
+    border: 1px solid rgba(56, 189, 248, 0.3);
     background: rgba(56, 189, 248, 0.08);
+    font-size: 0.95rem;
     transition: 0.3s;
 }
 
@@ -125,8 +152,9 @@ body{
     background: rgba(56, 189, 248, 0.18);
 }
 
-
-/* Projects Section */
+/* ============================= */
+/* Projects Section              */
+/* ============================= */
 
 .projects {
     padding: 4rem 5rem;
@@ -150,6 +178,12 @@ body{
     border-radius: 12px;
     padding: 1.5rem;
     text-align: left;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.4);
 }
 
 .project-card h3 {
@@ -169,14 +203,10 @@ body{
     text-decoration: none;
     font-size: 0.9rem;
 }
-.project-card {
-    transition: transform 0.3s, border-color 0.3s;
-}
 
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(56, 189, 248, 0.4);
-}
+/* ============================= */
+/* Footer                        */
+/* ============================= */
 
 .footer {
     display: flex;
@@ -195,16 +225,20 @@ body{
 
 .footer-links a {
     color: #475569;
-    text-decoration:none;
+    text-decoration: none;
     transition: 0.3s;
 }
 
 .footer-links a:hover {
     color: #38bdf8;
 }
+
+/* ============================= */
+/* Mobile Responsiveness         */
+/* ============================= */
+
 @media (max-width: 768px) {
 
-    /* Navbar */
     .navbar {
         padding: 1rem 1.5rem;
         flex-direction: column;
@@ -215,28 +249,26 @@ body{
         gap: 1.2rem;
     }
 
-    /* Hero */
     .hero {
+        flex-direction: column;   /* stack image below text instead of side-by-side */
         padding: 3rem 1.5rem;
-        height: auto;
+        min-height: auto;
+        text-align: center;
     }
 
     .hero-content h1 {
         font-size: 2.2rem;
     }
 
-    /* Skills & Projects */
     .skills,
     .projects {
         padding: 3rem 1.5rem;
     }
 
-    /* Projects grid: 3 columns → 1 column */
     .projects-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Footer */
     .footer {
         flex-direction: column;
         gap: 1rem;
