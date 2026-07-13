@@ -15,16 +15,24 @@ body {
 /* ============================= */
 
 .navbar {
-    display: flex;                  /* was missing — this is why logo/links stacked */
-    justify-content: space-between; /* logo on the left, links on the right */
+    display: flex;
+    justify-content: center;    /* centers the whole nav-inner group on the page */
     align-items: center;
-    padding: 1.2rem 5rem;
+    padding: 1.2rem 2rem;
     background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     position: sticky;
     top: 0;
     z-index: 100;
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;   /* content stays centered and doesn't stretch on wide screens */
 }
 
 .logo {
@@ -52,13 +60,21 @@ body {
 /* ============================= */
 
 .hero {
-    display: flex;                  /* was missing — everything was stacking in one column */
+    display: flex;
+    justify-content: center;   /* centers hero-inner as a group on the page */
+    align-items: center;
+    min-height: 90vh;
+    padding: 4rem 2rem;
+    background: radial-gradient(ellipse at center, #0f2744 0%, #0f172a 70%);
+}
+
+.hero-inner {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 3rem;
-    min-height: 90vh;
-    padding: 4rem 5rem;
-    background: radial-gradient(ellipse at center, #0f2744 0%, #0f172a 70%);
+    width: 100%;
+    max-width: 1200px;   /* text + photo stay centered as a unit, don't hug screen edges */
 }
 
 .hero-content {
@@ -137,6 +153,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
+    max-width: 800px;
+    margin: 0 auto;   /* centers the badge group horizontally */
 }
 
 .skill-badge {
@@ -170,6 +188,8 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;   /* centers the whole grid horizontally */
 }
 
 .project-card {
@@ -210,12 +230,20 @@ body {
 
 .footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;   /* centers footer-inner as a group on the page */
     align-items: center;
-    padding: 1.5rem 5rem;
+    padding: 1.5rem 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #475569;
     font-size: 0.85rem;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .footer-links {
